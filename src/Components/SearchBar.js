@@ -1,35 +1,20 @@
 import React from "react";
 
 class SearchBar extends React.Component {
-  // state = {
-  //   searchChange: "",
-  // };
-
   formSubmit = (event) => {
     event.preventDefault();
   };
 
-  // enterValue = (e) => {
-  //   if (e.key == "Enter") {
-  //     console.log("submit");
-  //     this.state.searchChange = "";
-  //     console.log(this.state.searchChange);
-  //   } else {
-  //     this.state.searchChange = "";
-  //   }
-  // };
-
   render() {
     return (
       <form onSubmit={this.formSubmit}>
-        <div className="form-row mb-5">
-          <div className="col-12">
+        <div className="mb-5">
+          <div className="is-12">
             <input
-              className="form-control"
+              className="input is-info"
               type={this.props.inputType}
               placeholder={this.props.placeHolder}
               onChange={this.props.searchMovieProps}
-             // onKeyUp={this.enterValue}
             ></input>
           </div>
         </div>

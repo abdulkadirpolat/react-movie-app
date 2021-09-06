@@ -2,11 +2,14 @@ import React from "react";
 
 const MovieList = (props) => {
   return (
-    <div className="columns is-multiline is-mobile">
+    <div className="columns is-multiline">
       {props.movies.map((movie) => {
         return (
-          <div className="column is-one-quarter" key={movie.id}>
-            <div className="card" style={{ minHeight: "652px" }}>
+          <div
+            className="column is-one-quarter-fullhd is-one-third-desktop is-half-tablet"
+            key={movie.id}
+          >
+            <div className="card  " style={{ minHeight: "652px" }}>
               <div className="card-image">
                 <figure className="image is-1by1">
                   <img
@@ -14,7 +17,7 @@ const MovieList = (props) => {
                   />
                 </figure>
               </div>
-              <div className="card-content">
+              <div className="card-content mx-4-tablet">
                 <div className="media">
                   <div className="media-left">
                     <figure className="image is-32x32">
@@ -24,29 +27,23 @@ const MovieList = (props) => {
                       />
                     </figure>
                   </div>
-                  <div className="media-content">
-                    <p style={{ minHeight: "40px" }} className="title is-5">
+                  <div className="media-content" style={{ overflow: "hidden" }}>
+                    <p style={{ minHeight: "45px" }} className="title is-5">
                       {movie.title}
                     </p>
                   </div>
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
+                <div className="level" style={{ display: "flex" }}>
                   <p
                     className=" is-medium px-2 py-2 has-background-info has-text-white button is-rounded"
                     style={{ minWidth: "50px" }}
                   >
                     {movie.vote_average}
                   </p>
-                  <time className="is-size-5	">{movie.release_date}</time>
+                  <time className="is-size-5">{movie.release_date}</time>
                 </div>
                 <div className="content mt-2" style={{ minHeight: "172px" }}>
-                  <p style={{ minHeight: "120px" }}>
+                  <p style={{ minHeight: "150px" }}>
                     {
                       (movie.overview =
                         movie.overview.length < 165
@@ -55,17 +52,12 @@ const MovieList = (props) => {
                     }
                   </p>
 
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
+                  <div className="level">
                     <button
                       onClick={() => props.deleteMovieProps(movie)}
-                      className="button is-danger is-outlined "
+                      className="button is-danger is-outlined level-item is-full"
                       type={props.buttonType}
+                      style={{ width: "100%" }}
                     >
                       {props.buttonText}
                     </button>

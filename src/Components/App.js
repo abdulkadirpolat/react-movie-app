@@ -11,8 +11,8 @@ class App extends React.Component {
 
   async componentDidMount() {
     const response = await axios.get(
-      `https://api.themoviedb.org/4/list/7106878?page=1&api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
-    );
+      `https://api.themoviedb.org/4/list/7106878?page=1&api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`,
+      );  
     this.setState({ movies: response.data.results });
   }
 
@@ -36,7 +36,8 @@ class App extends React.Component {
         movie.title.toLowerCase().indexOf(this.state.searchChange) !== -1
     );
     return (
-      <div className="container">
+      <div className="container px-5"  >
+        
         <SearchBar
           inputType="text"
           placeHolder="Search movies"

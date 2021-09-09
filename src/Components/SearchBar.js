@@ -1,31 +1,35 @@
 import React from "react";
-
-class SearchBar extends React.Component {
-  formSubmit = (event) => {
+import PropTypes from 'prop-types'
+function SearchBar({ inputType, placeHolder, searchMovieProps }) {
+  const formSubmit = (event) => {
     event.preventDefault();
   };
 
-  render() {
-    return (
-      <form onSubmit={this.formSubmit}>
-        <div className="mb-5">
-          <div className="is-12">
-            <input
-              className="input is-info"
-              type={this.props.inputType}
-              placeholder={this.props.placeHolder}
-              onChange={this.props.searchMovieProps}
-            ></input>
-          </div>
+  return (
+    <form onSubmit={formSubmit}>
+      <div className="mb-5">
+        <div className="is-12">
+          <input
+            className="input is-info"
+            type={inputType}
+            placeholder={placeHolder}
+            onChange={searchMovieProps}
+          ></input>
         </div>
-      </form>
-    );
-  }
+      </div>
+    </form>
+  );
 }
 
 SearchBar.defaultProps = {
   inputType: "text",
   placeHolder: "Searct",
 };
+
+SearchBar.propTypes = {
+  inputType: PropTypes.string.isRequired,
+  placeHolder: PropTypes.string.isRequired,
+  searchMovieProps: PropTypes.string.isRequired,
+}
 
 export default SearchBar;

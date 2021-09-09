@@ -1,6 +1,6 @@
 import React from "react";
 
-const MovieList = (props) => {
+function MovieList (props) {
   return (
     <div className="columns is-multiline">
       {props.movies.map((movie) => {
